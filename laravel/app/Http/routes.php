@@ -11,6 +11,22 @@
 |
 */
 
+Route::get('prueba',function(){
+	return "Hola desde routes.php";
+});
+
+Route::get('nombre/{nombre}',function($nombre){
+	return "mi nombre es:".$nombre;
+});
+
+Route::get('edad/{edad}',function($edad){
+	return "mi edad es:".$edad;
+});
+
+Route::get('edad2/{edad?}',function($edad=20){
+	return "mi edad es:".$edad;
+});
+
 Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
