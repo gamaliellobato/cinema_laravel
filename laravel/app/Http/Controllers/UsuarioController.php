@@ -8,6 +8,7 @@ use Cinema\Http\Controllers\Controller;
 use Cinema\User;
 use Session;
 use Redirect;
+
 class UsuarioController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(2);
         return view('usuario.index',compact('users'));
     }
     /**
