@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 use Cinema\Http\Requests;
 use Cinema\Http\Controllers\Controller;
 use Cinema\Genre;
+use Illuminate\Routing\Route;
 
 class GeneroController extends Controller
 {
+     public function __construct(){
+        $this->beforeFilter('@find',['only' => ['edit','update','destroy']]);
+    }
+    public function find(Route $route){
+        $this->genre = Genre::find($route->getParameter('genero'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -103,6 +110,7 @@ class GeneroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->genre->delete();
+        return response()->json(["mensaje"=>"borrado"]);
     }
 }
