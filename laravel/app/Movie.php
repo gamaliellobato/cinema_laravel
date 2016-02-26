@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use DB;
 class Movie extends Model {
 
 	protected $table = "movies";
@@ -14,5 +15,11 @@ class Movie extends Model {
 	
 }
 
+	public static function Movies(){
+		return DB::table('movies')
+			->join('genres','genres.id','=','movies.genre_id')
+			->select('movies.*', 'genres.genre')
+			->get();
+	}
 
 }
