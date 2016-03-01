@@ -25,12 +25,11 @@ function Eliminar(btn){
 		dataType: 'json',
 		success: function(){
 			Carga();
-			$("#msj-success").fadeIn();
+			$("#msj-error").fadeIn();
 		}
-	
 	});
-
 }
+
 
 function Mostrar(btn){
 	console.log(btn.value);

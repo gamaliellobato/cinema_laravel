@@ -5,9 +5,6 @@
 			<strong>Genero Agregado Correctamente.</strong>
 		</div>
 
-		<div id="msj-error" class="alert alert-danger alert-dismissible" role="alert" style="display:none">
-			<strong id="msj">Genero Agregado Correctamente.</strong>
-		</div>
 		<input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
 			@include('genero.form.genero')
 			{!!link_to('#', $title='Registrar', $attributes = ['id'=>'registro','class'=>'btn btn-primary'], $secure = null)!!}
